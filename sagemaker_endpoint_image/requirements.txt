@@ -1,0 +1,4 @@
+Flask
+gunicorn
+boto3
+git+https://github.com/nomic-ai/pyllamacpp.git
