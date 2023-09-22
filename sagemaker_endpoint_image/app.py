@@ -21,6 +21,9 @@ s3 = boto3.client("s3")
 local_model_path = f"{TMP_MODEL_PATH}/model.bin"
 s3.download_file(s3_bucket_name, s3_object_key, local_model_path)
 
+# Set the model path on the Model class
+Model.set_model_path(local_model_path)
+
 # Load the model from the local directory on the Flask server
 model = Model(ggml_model=local_model_path, n_ctx=512)
 
@@ -42,3 +45,13 @@ def invoke():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
+
+
+
+# create a function that gets the url from a database
+# then calls the model and returns the result
+
+# create a function that gets the url from a database
+def get_url():
+    return "https://www.example.com"
